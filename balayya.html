@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>balayya</title>
+    <style>
+      * {
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      img {
+        height: 400px;
+        width: 600px;
+      }
+
+      #train {
+        animation-name: balayya-train;
+        animation-duration: 5s;
+      }
+
+      #balayya {
+        animation-name: balayya-stop;
+        animation-duration: 5s;
+      }
+
+      @keyframes balayya-stop {
+        0%,
+        25% {
+          /* opacity: 0; */
+          display: none;
+        }
+        26%,
+        100% {
+          /* opacity: 1; */
+        }
+      }
+
+      div {
+        height: 800px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      @keyframes balayya-train {
+        from {
+          transform: scale(0.8);
+        }
+
+        50% {
+          transform: scale(1) translateX(-670px);
+        }
+
+        to {
+          transform: scale(0.5) translateX(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div>
+        <img
+          id="balayya"
+          src="https://media1.tenor.com/m/X_M1ExzJ9H0AAAAC/veera-simha-reddy-nbk.gif"
+          alt="balayya"
+        />
+      </div>
+      <img
+        id="train"
+        src="https://pngimg.com/d/trian_PNG101358.png"
+        alt="train"
+      />
+    </div>
+  </body>
+</html>

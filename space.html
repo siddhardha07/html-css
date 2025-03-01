@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>nothing</title>
+  </head>
+  <body>
+    <!-- <div style="display: none;"> -->
+      <audio controls allow="autoplay" src="./night-ambience-17064.mp3" id="audioPlayer">
+        <source src="./night-ambience-17064.mp3" type="audio/mp3" />
+      </audio>
+    <!-- </div> -->
+
+    <script>
+      const body = document.querySelector("body");
+      const moon = document.createElement("moon");
+      const halfMoon = document.createElement("halfMoon");
+
+      const randomNumber = (to) => Math.floor(Math.random() * to);
+
+      body.style.backgroundColor = "black";
+
+      const fiction = () => {
+        const a = randomNumber(8);
+        const star = document.createElement("star");
+
+        body.append(star);
+        star.style.height = `${a}px`;
+        star.style.width = `${a}px`;
+        star.style.marginTop = `${randomNumber(100)}vh`;
+        star.style.marginLeft = `${randomNumber(100)}vw`;
+        star.style.backgroundColor = `white`;
+        star.style.borderRadius = `${a / 2}px`;
+        star.style.position = "absolute";
+        star.style.webkitBoxShadow = "0 0 4px white";
+      };
+
+      const num = randomNumber(250);
+      body.append(moon);
+      // moon.append(halfMoon);
+      halfMoon.style.height = `${num - 50}px`;
+      halfMoon.style.width = `${num - 50}px`;
+      halfMoon.style.backgroundColor = `black`;
+      halfMoon.style.borderRadius = `${(num - 50) / 2}px`;
+      halfMoon.style.borderTopLeftRadius = "0px";
+      halfMoon.style.position = "absolute";
+
+      moon.style.position = "absolute";
+      moon.style.height = `${num}px`;
+      moon.style.width = `${num}px`;
+      moon.style.marginTop = `${randomNumber(80)}vh`;
+      moon.style.marginLeft = `${randomNumber(80)}vw`;
+      moon.style.backgroundColor = `white`;
+      moon.style.borderRadius = `${num / 2}px`;
+      // moon.style.webkitBoxShadow = "10px 20px 40px white";
+      moon.style.webkitBoxShadow = "0px 0px 40px white"
+
+      
+      for (let index = 0; index < 300; index++) {
+        fiction();
+      }
+      const audioPlayer = document.querySelector("#audioPlayer");
+      setTimeout(() => {
+        audioPlayer.play();
+      }, 1000);
+    </script>
+  </body>
+</html>

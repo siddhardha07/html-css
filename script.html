@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>circles</title>
+    <style>
+      div {
+        height: 100px;
+        width: 100px;
+        border-radius: 50px;
+        background-color: aqua;
+        animation: move 14s ease-in-out;
+        animation-name: moveIt;
+      }
+
+      @keyframes moveIt {
+
+        40% {
+          transform: translateX(5000px);
+        }
+
+        100% {
+          transform: translateX(-5000px);
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <script>
+      const body = document.querySelector("body");
+      const rN = (to) => Math.floor(Math.random() * to);
+      const p1 = [
+        "#001219",
+        "#005F73",
+        "#0A9396",
+        "#94D2BD",
+        "#E9D8A6",
+        "#EE9B00",
+        "#CA6702",
+        "#BB3E03",
+        "#AE2012",
+        "#9B2226",
+      ];
+      
+      const p2 = [
+        "#03045E",
+        "#023E8A",
+        "#0077B6",
+        "#0096C7",
+        "#00B4D8",
+        "#48CAE4",
+        "#90E0EF",
+        "#ADE8F4",
+        "#CAF0F8",
+      ];
+
+      const fiction = () => {
+        const a = rN(200);
+        const div = document.createElement("div");
+
+        body.append(div);
+        div.style.height = `${a}px`;
+        div.style.width = `${a}px`;
+        div.style.marginTop = `${rN(100)}vh`;
+        div.style.marginLeft = `${rN(100)}vw`;
+        div.style.backgroundColor = `${p2[rN(10)]}`;
+        // div.style.backgroundColor = `${p1[rN(10)]}`;
+        div.style.borderRadius = `${a / 2}px`;
+        div.style.position = "absolute";
+
+        setTimeout(() => {
+          div.style.opacity = `50%`;
+        }, rN(10000));
+
+        setTimeout(() => {
+          div.style.opacity = `18%`;
+        }, rN(20000));
+
+        setTimeout(() => {
+          body.removeChild(div);
+        }, rN(50000));
+      };
+
+      setInterval(fiction, 100);
+    </script>
+  </body>
+</html>
+<!-- rgba(${rc(256)},${rc(256)},${rc(256)},${rc(
+  300
+)}%) -->

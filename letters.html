@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>circles</title>
+    <style>
+      div {
+        animation: move 15s ease-in-out;
+        text-shadow: 1px 1px 10px gray;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      const body = document.querySelector("body");
+      const randomNumber = (to) => Math.floor(Math.random() * to);
+      const letters = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
+      const p1 = [
+        "#001219",
+        "#005F73",
+        "#0A9396",
+        "#94D2BD",
+        "#E9D8A6",
+        "#EE9B00",
+        "#CA6702",
+        "#BB3E03",
+        "#AE2012",
+        "#9B2226",
+      ];
+
+      const p2 = [
+        "#03045E",
+        "#023E8A",
+        "#0077B6",
+        "#0096C7",
+        "#00B4D8",
+        "#48CAE4",
+        "#90E0EF",
+        "#ADE8F4",
+        "#CAF0F8",
+      ];
+
+      const fiction = () => {
+        const a = randomNumber(300);
+        const div = document.createElement("div");
+        const letter = document.createElement("letter");
+
+        body.append(div);
+        div.append(letter);
+        letter.textContent = letters[`${randomNumber(26)}`];
+        letter.style.color = `${p1[randomNumber(10)]}`;
+        letter.style.fontSize = `${a}px`;
+        letter.style.webkitTextStroke = `${a / 70}px ${p1[0]}`;
+        div.style.marginTop = `${randomNumber(100)}vh`;
+        div.style.marginLeft = `${randomNumber(100)}vw`;
+
+        setTimeout(() => {
+          letter.style.opacity = `50%`
+        }, randomNumber(10000));
+
+        setTimeout(() => {
+          letter.style.opacity = `18%`
+        }, randomNumber(20000));
+
+        setTimeout(() => {
+          body.removeChild(div)
+        }, randomNumber(30000));
+      };
+
+      setInterval(fiction, 100);  
+    </script>
+  </body>
+</html>
+<!-- rgba(${rc(256)},${rc(256)},${rc(256)},${rc(
+  300
+)}%) -->
